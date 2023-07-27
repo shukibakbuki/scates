@@ -1,0 +1,24 @@
+name: "Apiiro"
+on:
+  pull_request_target
+
+jobs:
+  apiirotest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+           fetch-depth: 0
+      - run: echo "::set-output name=baseSha::$(git merge-base ${{ github.event.pull_request.head.sha }} ${{ github.event.pull_request.base.sha }})"
+        id: get_base
+  - uses: actions/checkout1@v2
+        with:
+           fetch-depth: 0
+      - run: echo "::set-output name=baseSha::$(git merge-base ${{ github.event.pull_request.head.sha }} ${{ github.event.pull_request.base.sha }})"
+        id: get_base
+      - uses: ./
+        with:
+          token: "${{ secrets.GITHUB_TOKEN }}"
+          apiirourl: "https://38c2b0605ba2.ngrok.io"
+          jwtToken: "${{ secrets.APIIROTOKEN }}"
+          baseSha:  "${{ steps.get_base.outputs.baseSha }}"
