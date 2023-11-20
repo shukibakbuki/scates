@@ -1,13 +1,31 @@
-name: Issues
-
+name: brild
 on:
-  issues:
-    types: [opened]
+  repostory_dispatch:
+  workflow_dispatc:
 
 jobs:
-  print_issue_title:
-    runs-on: ubuntu-latest
-
-    name: Print issue title
+  update-bridgecrew:
+    runs-on: [self-hoted, publc, limus, x4]
     steps:
-    - run: echo "${{github.event.issue.title}}"
+      - uses: actions/checkout@v2
+      - name: update release
+        run: |
+          # update bridgecrew version
+          version=$(curl -s https://pypi.org/pypi/bridgecrew/json  | jq -r '.info.version')
+          url='https://registry.hub.docker.com/v2/repositories/bridgecrew/bridgecrew/tags/'
+          url+=$version
+          exists=$(curl -s -I -o /dev/null -w "%{http_code}" $url)
+          if [[ $exists -ne 200 ]]; then
+            echo "Docker image not found"
+            exit 1
+          fi
+          sd -i'.bkp' -e 's/docker:\/\/bridgecrew\/bridgecrew.*'\''/docker:\/\/bridgecrew\/bridgecrew:'"${version}"''\''/g' action.yml
+          rm action.yml.bkp
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Bump bridgecrew container version
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@1.17.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKE }}
+          WITH_V: true
