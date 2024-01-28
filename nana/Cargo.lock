@@ -491,7 +491,7 @@ dependencies = [
 
 [[package]]
 name = "hyper"
-version = "0.12.35"
+version = "0.14.19"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9dbe6ed1438e1f8ad955a4701e9a944938e9519f6888d12d8558b645e247d5f6"
 dependencies = [
@@ -527,7 +527,7 @@ checksum = "3a800d6aa50af4b5850b2b0f659625ce9504df908e9733b635720483be26174f"
 dependencies = [
  "bytes",
  "futures",
- "hyper 0.12.35",
+ "hyper 0.14.19",
  "native-tls",
  "tokio-io",
 ]
@@ -580,7 +580,7 @@ checksum = "9fb1b2d809f84bf347e472d5758762b5c804e0c622970235f156d82673e4d334"
 dependencies = [
  "conduit-mime-types",
  "error",
- "hyper 0.9.18",
+ "hyper 0.14.19",
  "lazy_static 0.1.16",
  "log 0.3.9",
  "modifier",
@@ -1210,7 +1210,7 @@ dependencies = [
  "flate2",
  "futures",
  "http",
- "hyper 0.12.35",
+ "hyper 0.14.19",
  "hyper-tls",
  "log 0.4.8",
  "mime 0.3.16",
