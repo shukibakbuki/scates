@@ -483,7 +483,6 @@ dependencies = [
  "rustc-serialize",
  "solicit",
  "time",
- "traitobject 0.0.1",
  "typeable",
  "unicase 1.4.2",
  "url 1.7.2",
@@ -1624,12 +1623,6 @@ dependencies = [
  "slab",
  "tokio-executor",
 ]
-
-[[package]]
-name = "traitobject"
-version = "0.0.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "07eaeb7689bb7fca7ce15628319635758eda769fed481ecfe6686ddef2600616"
 
 [[package]]
 name = "traitobject"
