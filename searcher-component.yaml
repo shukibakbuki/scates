@@ -12,5 +12,5 @@ metadata:
 spec:
   type: service
   lifecycle: production
-  owner: user:guest
+  owner: team-a
   system: audio-test
