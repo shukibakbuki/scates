@@ -7,7 +7,7 @@ metadata:
     - go
   links:
     - url: https://github.com/shukibakbuki/scates
-    title: scates?
+    title: GitHub Repo
     icon: github
 spec:
   type: service
