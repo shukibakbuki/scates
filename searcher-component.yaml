@@ -7,9 +7,10 @@ metadata:
     - go
   links:
     - url: https://github.com/shukibakbuki/scates
-    title: GitHub Repo
-    icon: github
+      title: GitHub Repo
+      icon: github
 spec:
   type: service
   lifecycle: production
   owner: user:guest
+  system: audio-test
